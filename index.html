@@ -46,7 +46,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9">
-              <div class="row row-cols-3">
+              <div class="row row-cols-3" id="worster">
                 <div class="container py-3">
                   <div class="card border-0 rounded-3 w-100">
                     <img src="images/players/player1.png" class="card-img-top img-fluid" alt="...">
@@ -56,7 +56,7 @@
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -64,12 +64,12 @@
                   <div class="card border-0 rounded-3 w-100">
                     <img src="images/players/player2.png" class="card-img-top img-fluid" alt="...">
                     <div class="card-body bg-kalo text-light text-center">
-                      <h5 class="card-title font-bolder">Lionel Messi</h5>
+                      <h5 class="card-title font-bolder">Vítor Machado</h5>
                       <div class="middle d-flex justify-content-around my-3">
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -77,12 +77,12 @@
                   <div class="card border-0 rounded-3 w-100">
                     <img src="images/players/player3.png" class="card-img-top img-fluid" alt="...">
                     <div class="card-body bg-kalo text-light text-center">
-                      <h5 class="card-title font-bolder">Lionel Messi</h5>
+                      <h5 class="card-title font-bolder">Neymar Jr</h5>
                       <div class="middle d-flex justify-content-around my-3">
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -95,7 +95,7 @@
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -108,7 +108,7 @@
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -121,7 +121,7 @@
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -134,7 +134,7 @@
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -160,7 +160,7 @@
                         <p class="card-text">36 goals</p> <p>💠</p>
                         <p class="card-text">120 assists</p>
                       </div>
-                      <a href="#" class="btn btn-primary w-100">select</a>
+                      <a class="btn btn-primary w-100" onclick="addToLeaderBoared(this)">select</a>
                     </div>
                   </div>
                 </div>
@@ -168,33 +168,38 @@
             </div>
             <div class="col-md-3">
               <div class="createBox py-3 rounded-3 mt-3 text-center text-light text-capitalize">
-                <h3>selected-v</h3>
+                <h3>selected-<span class="text-danger" id="player-number">0</span></h3>
                 <img src="images/Ureg-Ureg Marker.png" alt="">
+                <!-- table  -->
+                <table class="table table-dark p-3 text-light mt-3">
+                  <tbody id="show-players">
+                  </tbody>
+                </table>
               </div>
               <div class="createJox p-3 rounded-3 mt-4 text-center text-light text-capitalize">
                 <h3>budget</h3>
                 <img src="images/Ureg-Ureg Marker.png" alt="">
                 <div class="d-flex justify-content-between align-items-center my-2">
                   <p class="mt-3">per player</p>
-                  <input style="width: 100px; height: 32px; outline: none; border: 1px solid grey" class="text-center bg-dark rounded-2 text-light" type="text" name="player" id="">
+                  <input style="width: 100px; height: 32px; outline: none; border: 1px solid grey" class="text-center bg-dark rounded-2 text-light" type="text" name="player" id="per-player-expence">
                 </div>
-                <a href="#" class="btn btn-primary w-100">select</a>
+                <a class="btn btn-primary w-100" id="btn-calculate">calculate</a>
                 <div class="d-flex justify-content-between align-items-center mt-3">
                   <p>Player Expenses</p>
-                  <p>$<span>00</span></p>
+                  <p>$<span id="player-expence">00</span></p>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
                   <p class="mt-3">manager</p>
-                  <input style="width: 100px; height: 32px; outline: none; border: 1px solid grey;" class="text-center bg-dark rounded-2 text-light" type="text" name="player" id="">
+                  <input style="width: 100px; height: 32px; outline: none; border: 1px solid grey;" class="text-center bg-dark rounded-2 text-light" type="text" name="player" id="manager-expence">
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
                   <p class="mt-3">coach</p>
-                  <input style="width: 100px; height: 32px; outline: none; border: 1px solid grey;" class="text-center bg-dark rounded-2 text-light" type="text" name="player" id="">
+                  <input style="width: 100px; height: 32px; outline: none; border: 1px solid grey;" class="text-center bg-dark rounded-2 text-light" type="text" name="player" id="coach-expence">
                 </div>
-                <a href="#" class="btn btn-primary w-100">calculate total</a>
+                <a class="btn btn-primary w-100" id="btn-total-calculate">calculate total</a>
                 <div class="d-flex justify-content-between align-items-center mt-3">
                   <p>total</p>
-                  <p>$<span>00</span></p>
+                  <p>$<span id="total-expence">00</span></p>
                 </div>
               </div>
             </div>
@@ -209,11 +214,14 @@
     <footer>
       <section class="text-light">
         <hr>
-        <p class="text-center py-4">Copyright @ 2022 All Rights Reserved.</p>
+        <p class="text-center py-4 ">Copyright @ 2022 All Rights Reserved.</p>
       </section>
     </footer>
     <!-- footer end  -->
 
+
+    <!-- vanilla js  -->
+    <script src="js/play.js"></script>
     <!-- bootstrap js cdn  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
