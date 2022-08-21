@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Manrope', sans-serif;
+}
+
+.bg-kalo{
+    background: #000;;
+}
+
+.fontSize{
+    font-family: 'Berkshire Swash';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 94px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FF5E19;
+}
+
+.headerText{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
+
+.headerImg{
+    position: relative;
+    background: url(../images/headerLion.png) no-repeat;
+    background-size: cover;
+}
+
+.headerImg img{
+    position: relative;
+    top: 49px;
+    right: 20px;
+}
