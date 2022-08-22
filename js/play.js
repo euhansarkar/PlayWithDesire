@@ -20,20 +20,25 @@ function addToLeaderBoared(getValue){
     const playerObj = {
         playerName: getPlayerName,
     }
-    // let get the button to set disable attribute 
-    let getButton = getValue;
-    getButton.setAttribute("disabled", "");
+    
 
     // you can't push new element if selected player arr is equal or greater then 5
     if(selectedPlayarArray.length < 5){
-        selectedPlayarArray.push(playerObj);
+        let pushingIntoArr = selectedPlayarArray.push(playerObj);
+        //add disable attribute if the element is added into the array 
+        if(pushingIntoArr){
+            let getTheButton = getValue;
+            getTheButton.setAttribute("disabled", "");
+        }
     }else{
         alert(`you can't add new player`)
     }
+    //call display arr 
     displayArray(selectedPlayarArray);
 
     document.getElementById('player-number').innerText = selectedPlayarArray.length;
 }
+
 
 function calculatePlayerExpences(){
     let getPlayerNumber = parseInt((document.getElementById('player-number').innerText));
