@@ -92,6 +92,8 @@ function calculateTotalExpences(){
     }else{
         return alert(`Please! Provide Numeric Values`)
     }
+    getManagerExpence.value = '';
+    getCoachExpence.value = '';
     let getLocation = document.getElementById('total-expence');
 
     getLocation.innerText = calculateValue;
