@@ -31,7 +31,7 @@ function addToLeaderBoared(getValue){
             getTheButton.setAttribute("disabled", "");
         }
     }else{
-        alert(`you can't add new player`)
+        alert(`Needed Players Fullfilled. You can't add new players`)
     }
     //call display arr 
     displayArray(selectedPlayarArray);
@@ -60,8 +60,16 @@ function calculatePlayerExpences(){
     let perPlayerExpence = document.getElementById('per-player-expence');
     let playerExpenceString = perPlayerExpence.value;
     let palyerExpence = parseInt(playerExpenceString);
+    let calculate;
+
+    //validation 
+
+    if(!isNaN(palyerExpence)){
+        calculate = getPlayerNumber * palyerExpence;
+    } else{
+        return alert(`Please! Provide numeric values`)
+    }
     let showPlayerExpence = document.getElementById('player-total-expence');
-    let calculate = getPlayerNumber * palyerExpence;
     perPlayerExpence.value = '';
     showPlayerExpence.innerText = calculate;
     return calculate;
@@ -69,14 +77,21 @@ function calculatePlayerExpences(){
 
 
 function calculateTotalExpences(){
-    let getPlayerExpence = parseInt(document.getElementById('player-expence').innerText);
+    let getPlayerExpence = parseInt(document.getElementById('player-total-expence').innerText);
     let getManagerExpence = document.getElementById('manager-expence');
     let getManagerExpenceString = getManagerExpence.value;
     let managerExpence = parseInt(getManagerExpenceString);
     let getCoachExpence = document.getElementById('coach-expence');
     let getCoachExpenceString = getCoachExpence.value;
     let coachExpence = parseInt(getCoachExpenceString);
-    let calculateValue = getPlayerExpence + managerExpence + coachExpence;
+    let calculateValue;
+
+    //validation
+    if((!isNaN(managerExpence)) && (!isNaN(coachExpence))){
+        calculateValue = getPlayerExpence + managerExpence + coachExpence;
+    }else{
+        return alert(`Please! Provide Numeric Values`)
+    }
     let getLocation = document.getElementById('total-expence');
 
     getLocation.innerText = calculateValue;
