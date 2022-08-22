@@ -40,21 +40,6 @@ function addToLeaderBoared(getValue){
 }
 
 
-
-function getElementValue(element){
-    let getElement = document.getElementById(element);
-    let getElementAsString = getElement.value;
-    let getElementAsNumeric = parseInt(getElementAsString);
-    return getElementAsNumeric;
-}
-
-function getElementInnerText(element){
-    let getElement = document.getElementById(element);
-    let getElementSpace = getElement.innerText;
-    return getElementSpace;
-}
-
-
 function calculatePlayerExpences(){
     let getPlayerNumber = parseInt((document.getElementById('player-number').innerText));
     let perPlayerExpence = document.getElementById('per-player-expence');
