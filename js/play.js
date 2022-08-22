@@ -14,12 +14,22 @@ function displayArray(arr){
     }
 }
 
+
 function addToLeaderBoared(getValue){
     const getPlayerName = getValue.parentNode.children[0].innerText;
     const playerObj = {
         playerName: getPlayerName,
     }
-    selectedPlayarArray.push(playerObj);
+    // let get the button to set disable attribute 
+    let getButton = getValue;
+    getButton.setAttribute("disabled", "");
+
+    // you can't push new element if selected player arr is equal or greater then 5
+    if(selectedPlayarArray.length < 5){
+        selectedPlayarArray.push(playerObj);
+    }else{
+        alert(`you can't add new player`)
+    }
     displayArray(selectedPlayarArray);
 
     document.getElementById('player-number').innerText = selectedPlayarArray.length;
@@ -28,18 +38,16 @@ function addToLeaderBoared(getValue){
 function calculatePlayerExpences(){
     let getPlayerNumber = parseInt((document.getElementById('player-number').innerText));
     let get
-    let perPlayerExpence = parseInt(document.getElementById('per-player-expence').value);
+    let perPlayerExpence = document.getElementById('per-player-expence');
+    let playerExpenceString = perPlayerExpence.value;
+    let palyerExpence = parseInt(playerExpenceString);
     let showPlayerExpence = document.getElementById('player-expence');
-    let calculate = getPlayerNumber * perPlayerExpence;
+    let calculate = getPlayerNumber * palyerExpence;
+    perPlayerExpence.value = '';
     showPlayerExpence.innerText = calculate;
     return calculate;
 }
 
-
-
-document.getElementById('btn-calculate').addEventListener('click', function(){
-    calculatePlayerExpences();
-})
 
 function calculateTotalExpences(){
     let getPlayerExpence = parseInt(document.getElementById('player-expence').innerText);
@@ -50,6 +58,13 @@ function calculateTotalExpences(){
 
     getLocation.innerText = calculateValue;
 }
+
+
+document.getElementById('btn-calculate').addEventListener('click', function(){
+    calculatePlayerExpences();
+})
+
+
 
 document.getElementById('btn-total-calculate').addEventListener('click', function(){
     calculateTotalExpences();
