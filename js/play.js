@@ -56,9 +56,13 @@ function calculatePlayerExpences(){
 
 function calculateTotalExpences(){
     let getPlayerExpence = parseInt(document.getElementById('player-expence').innerText);
-    let getManagerExpence = parseInt(document.getElementById('manager-expence').value);
-    let getCoachExpence = parseInt(document.getElementById('coach-expence').value);
-    let calculateValue = getPlayerExpence + getManagerExpence + getCoachExpence;
+    let getManagerExpence = document.getElementById('manager-expence');
+    let getManagerExpenceString = getManagerExpence.value;
+    let managerExpence = parseInt(getManagerExpenceString);
+    let getCoachExpence = document.getElementById('coach-expence');
+    let getCoachExpenceString = getCoachExpence.value;
+    let coachExpence = parseInt(getCoachExpenceString);
+    let calculateValue = getPlayerExpence + managerExpence + coachExpence;
     let getLocation = document.getElementById('total-expence');
 
     getLocation.innerText = calculateValue;
