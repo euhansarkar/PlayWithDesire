@@ -41,73 +41,64 @@ function addToLeaderBoared(getValue){
 
 
 
-function getElementValue(element){
-    let getElement = document.getElementById(element);
-    let getElementAsString = getElement.value;
-    let getElementAsNumeric = parseInt(getElementAsString);
-    return getElementAsNumeric;
-}
+//expence commom function 
 
-function getElementInnerText(element){
-    let getElement = document.getElementById(element);
-    let getElementSpace = getElement.innerText;
-    return getElementSpace;
-}
+function calculateExpences(val){
 
+    if(val === true){
+        
+            let getPlayerNumber = parseInt((document.getElementById('player-number').innerText));
+            let perPlayerExpence = document.getElementById('per-player-expence');
+            let playerExpenceString = perPlayerExpence.value;
+            let palyerExpence = parseInt(playerExpenceString);
+            let calculate;
 
-function calculatePlayerExpences(){
-    let getPlayerNumber = parseInt((document.getElementById('player-number').innerText));
-    let perPlayerExpence = document.getElementById('per-player-expence');
-    let playerExpenceString = perPlayerExpence.value;
-    let palyerExpence = parseInt(playerExpenceString);
-    let calculate;
+            //validation 
 
-    //validation 
+            if(!isNaN(palyerExpence)){
+                calculate = getPlayerNumber * palyerExpence;
+            } else{
+                return alert(`Please! Provide numeric values`)
+            }
+            let showPlayerExpence = document.getElementById('player-total-expence');
+            perPlayerExpence.value = '';
+            showPlayerExpence.innerText = calculate;
+            return calculate;
+            
+        }else{
+           
+        let getPlayerExpence = parseInt(document.getElementById('player-total-expence').innerText);
+        let getManagerExpence = document.getElementById('manager-expence');
+        let getManagerExpenceString = getManagerExpence.value;
+        let managerExpence = parseInt(getManagerExpenceString);
+        let getCoachExpence = document.getElementById('coach-expence');
+        let getCoachExpenceString = getCoachExpence.value;
+        let coachExpence = parseInt(getCoachExpenceString);
+        let calculateValue;
 
-    if(!isNaN(palyerExpence)){
-        calculate = getPlayerNumber * palyerExpence;
-    } else{
-        return alert(`Please! Provide numeric values`)
-    }
-    let showPlayerExpence = document.getElementById('player-total-expence');
-    perPlayerExpence.value = '';
-    showPlayerExpence.innerText = calculate;
-    return calculate;
-}
+        //validation
+        if((!isNaN(managerExpence)) && (!isNaN(coachExpence))){
+            calculateValue = getPlayerExpence + managerExpence + coachExpence;
+        }else{
+            return alert(`Please! Provide Numeric Values`)
+        }
+        getManagerExpence.value = '';
+        getCoachExpence.value = '';
+        let getLocation = document.getElementById('total-expence');
 
-
-function calculateTotalExpences(){
-    let getPlayerExpence = parseInt(document.getElementById('player-total-expence').innerText);
-    let getManagerExpence = document.getElementById('manager-expence');
-    let getManagerExpenceString = getManagerExpence.value;
-    let managerExpence = parseInt(getManagerExpenceString);
-    let getCoachExpence = document.getElementById('coach-expence');
-    let getCoachExpenceString = getCoachExpence.value;
-    let coachExpence = parseInt(getCoachExpenceString);
-    let calculateValue;
-
-    //validation
-    if((!isNaN(managerExpence)) && (!isNaN(coachExpence))){
-        calculateValue = getPlayerExpence + managerExpence + coachExpence;
-    }else{
-        return alert(`Please! Provide Numeric Values`)
-    }
-    getManagerExpence.value = '';
-    getCoachExpence.value = '';
-    let getLocation = document.getElementById('total-expence');
-
-    getLocation.innerText = calculateValue;
+        getLocation.innerText = calculateValue;
+        }   
 }
 
 
 document.getElementById('btn-calculate').addEventListener('click', function(){
-    calculatePlayerExpences();
+    calculateExpences(true);
 })
 
 
 
 document.getElementById('btn-total-calculate').addEventListener('click', function(){
-    calculateTotalExpences();
+    calculateExpences(false);
 })
 
 
